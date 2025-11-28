@@ -17,7 +17,18 @@
         "command": "vscode-rpmdev.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "languages": [{
+			"id": "RPMSpec",
+			"aliases": ["RPM Spec", "RPMSpec"],
+			"extensions": [".spec"],
+			"configuration": "./RPMSpec.configuration.json"
+		}],
+		"grammars": [{
+			"language": "RPMSpec",
+			"scopeName": "source.spec",
+			"path": "./syntaxes/spec.json"
+		}]
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",

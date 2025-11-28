@@ -68,7 +68,7 @@ async function executeBumpspec() {
 
 
 export function activate(context: vscode.ExtensionContext) {
-    const bumpspecCommand = vscode.commands.registerCommand('vscode-rpmdev.bumpspec', executeBumpspec);
+    const bumpspecCommand = vscode.commands.registerCommand('rpmdev.bumpspec', executeBumpspec);
     context.subscriptions.push(bumpspecCommand);
 }
 

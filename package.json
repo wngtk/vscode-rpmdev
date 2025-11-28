@@ -50,7 +50,7 @@
     ],
     "keybindings": [
       {
-        "command": "vscode-rpmdev.bumpspec",
+        "command": "rpmdev.bumpspec",
         "key": "f10",
         "when": "editorLangId == RPMSpec"
       }

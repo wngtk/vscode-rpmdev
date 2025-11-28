@@ -12,23 +12,49 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "vscode-rpmdev",
+      "properties": {
+        "vscode-rpmdev.userstring": {
+          "type": "string",
+          "default": "",
+          "description": "User string for rpmdev-bumpspec command (e.g. 'John Doe <john.doe@example.com>')"
+        }
+      }
+    },
     "commands": [
       {
-        "command": "vscode-rpmdev.helloWorld",
-        "title": "Hello World"
+        "command": "vscode-rpmdev.bumpspec",
+        "title": "Bumpspec: Increase release number and add changelog"
       }
     ],
-    "languages": [{
-			"id": "RPMSpec",
-			"aliases": ["RPM Spec", "RPMSpec"],
-			"extensions": [".spec"],
-			"configuration": "./RPMSpec.configuration.json"
-		}],
-		"grammars": [{
-			"language": "RPMSpec",
-			"scopeName": "source.spec",
-			"path": "./syntaxes/spec.json"
-		}]
+    "languages": [
+      {
+        "id": "RPMSpec",
+        "aliases": [
+          "RPM Spec",
+          "RPMSpec"
+        ],
+        "extensions": [
+          ".spec"
+        ],
+        "configuration": "./RPMSpec.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "RPMSpec",
+        "scopeName": "source.spec",
+        "path": "./syntaxes/spec.json"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscode-rpmdev.bumpspec",
+        "key": "f10",
+        "when": "editorLangId == RPMSpec"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",

@@ -39,7 +39,7 @@ async function executeBumpspec() {
     const fileName = document.fileName;
     
     try {
-        const config = vscode.workspace.getConfiguration('vscode-rpmdev');
+        const config = vscode.workspace.getConfiguration('rpmdev');
         const userstring = config.get<string>('userstring');
         const newContent = await bumpspecContent(originalContent, userstring, fileName);
 

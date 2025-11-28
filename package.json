@@ -13,9 +13,9 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "vscode-rpmdev",
+      "title": "rpmdev",
       "properties": {
-        "vscode-rpmdev.userstring": {
+        "rpmdev.userstring": {
           "type": "string",
           "default": "",
           "description": "User string for rpmdev-bumpspec command (e.g. 'John Doe <john.doe@example.com>')"
@@ -24,7 +24,7 @@
     },
     "commands": [
       {
-        "command": "vscode-rpmdev.bumpspec",
+        "command": "rpmdev.bumpspec",
         "title": "Bumpspec: Increase release number and add changelog"
       }
     ],

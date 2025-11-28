@@ -7,8 +7,9 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
-export async function bumpspecContent(content: string, userstring?: string): Promise<string> {
-    const tempFilePath = path.join(os.tmpdir(), `vscode-rpmdev-${Date.now()}.spec`);
+export async function bumpspecContent(content: string, userstring?: string, fileName?: string): Promise<string> {
+    const tempFileName = fileName ? `${Date.now()}-${path.basename(fileName)}` : `vscode-rpmdev-${Date.now()}.spec`;
+    const tempFilePath = path.join(os.tmpdir(), tempFileName);
     try {
         await fs.writeFile(tempFilePath, content);
 
@@ -35,11 +36,12 @@ async function executeBumpspec() {
 
     const document = editor.document;
     const originalContent = document.getText();
+    const fileName = document.fileName;
     
     try {
         const config = vscode.workspace.getConfiguration('vscode-rpmdev');
         const userstring = config.get<string>('userstring');
-        const newContent = await bumpspecContent(originalContent, userstring);
+        const newContent = await bumpspecContent(originalContent, userstring, fileName);
 
         const edit = new vscode.WorkspaceEdit();
         edit.replace(document.uri, new vscode.Range(0, 0, document.lineCount, 0), newContent);

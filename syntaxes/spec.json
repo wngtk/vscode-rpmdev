@@ -3,7 +3,7 @@
   "comment": "Base on https://github.com/waveclaw/language-rpm-spec",
   "scopeName": "source.spec",
   "fileTypes": ["spec"],
-  "foldingStartMarker": "(^%(build$|changelog|check$|clean$|description|files|install$|package|(pre($| .*))|prep$|preun|post|postun|trigger|triggerin|triggerpostun|triggerun|verifyscript)\\s*$)",
+  "foldingStartMarker": "(^%(build$|changelog|check$|clean$|description|files|install$|package|(pre($| .*))|prep$|preun|post|postun|trigger|triggerin|triggerpostun|triggerun|verifyscript|posttrans)\\s*$)",
   "foldingStopMarker": "(^$)",
   "patterns": [
     {
@@ -459,7 +459,7 @@
         "name": "entity.name.section.spec"
       },
       {
-        "begin": "^(%(?:preun|prep|pre|postun|post|packagepreun))",
+        "begin": "^(%(?:preun|prep|pre|postun|post|packagepreun|posttrans))",
         "beginCaptures": {
           "1": {
               "name": "entity.name.section.spec"
@@ -702,7 +702,7 @@
   "modifiers": {
     "patterns": [
       {
-        "match": "^%(?:define|global|undefine|docdir|doc|license)",
+        "match": "^%(?:define|global|undefine|docdir|doc|license|ghost)",
         "name": "storage.modifier.spec"
       },
       {

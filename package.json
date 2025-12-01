@@ -1,8 +1,13 @@
 {
-  "name": "vscode-rpmdev",
-  "displayName": "vscode-rpmdev",
+  "name": "rpmdev",
+  "displayName": "rpmdev",
   "description": "",
   "version": "0.0.1",
+  "publisher": "wngtk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wngtk/vscode-rpmdev"
+  },
   "engines": {
     "vscode": "^1.106.1"
   },

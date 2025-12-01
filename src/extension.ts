@@ -8,7 +8,7 @@ import { promisify } from 'util';
 const execAsync = promisify(exec);
 
 export async function bumpspecContent(content: string, userstring?: string, fileName?: string): Promise<string> {
-    const tempFileName = fileName ? `${Date.now()}-${path.basename(fileName)}` : `vscode-rpmdev-${Date.now()}.spec`;
+    const tempFileName = fileName ? `${Date.now()}-${path.basename(fileName)}` : `rpmdev-${Date.now()}.spec`;
     const tempFilePath = path.join(os.tmpdir(), tempFileName);
     try {
         await fs.writeFile(tempFilePath, content);
